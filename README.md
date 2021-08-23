@@ -82,6 +82,92 @@ Sistemde bariyer kontrolü ise “Bariyeri Aç” ve “Bariyeri Kapat” butonl
 
 ![image](https://user-images.githubusercontent.com/70108497/130411616-6d5d69b9-bfba-4992-817d-dfba68e7fca8.png)
 
+# Görüntüyü Okuma Algoritması
+Görüntüyü okuma fonksiyonun da ise ilk olarak kayıt edilen görüntü açılmıştır. Sonrasında Tesseract kütüphanesindeki imgage_to_boxes fonksiyonu kullanılmıştır. Devamında for döngüsü ile resim üzerinde harfler ve sayılar dikdörtgen içine alınmıştır. Okunan görüntü matris içinde tutulduğu için veri tabanında karşılaştırmak için  Split ve Join fonksiyonları ile istenilen değer elde edilerek "y" değişkenin de tutulmuştur. 
+
+```python
+def okuma():
+   
+    
+    img = cv2.imread("/home/pi/bk_174209010_micpro/p3.png")
+    cv2.imshow("Kayıt Edilen Görüntü", img)
+    cv2.moveWindow("Kayıt Edilen Görüntü",620,80)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+       
+    hImg, wImg, _ = img.shape
+    boxes = (pytesseract.image_to_boxes(img))
+
+    plaka_o = []
+
+    for b in boxes.splitlines():
+        
+        plaka_o.append(b[0])
+        b = b.split(' ')
+        
+        x, y, w, h = int(b[1]), int(b[2]), int(b[3]), int(b[4])
+        cv2.rectangle(img, (x, hImg - y), (w, hImg - h), (0, 0, 255), 3)
+        cv2.putText(img, b[0], (x, hImg - y + 25), cv2.FONT_HERSHEY_COMPLEX, 1, (50, 50, 255), 2)
+  
+    y = ("".join(plaka_o))
+    
+
+```
+Devamında ise dosya işlemleri ile Text dosyasından veri okuma ve veri kaydetme işlemleri gerçekleştirilmiştir.
+
+*Okunan Görüntüyü Veri Tabanında Karşılaştırmak için ;*
+
+```python
+    dosya = open("aranan_plakalar.txt", "r",encoding="utf-8")
+    
+    liste_plk = dosya.read()
+    
+    if (y in liste_plk):
+            
+            lcd.message = (y+"\n"+"Gecemez")
+            
+            led_kirmizi.value =True
+            sleep(5)
+            
+            lcd.clear()
+            buzzer.duty_cycle=2**15           
+
+    else:
+                 
+            lcd.message = (y+"\n"+"Gecebilir")
+            
+            led_yesil.value =True
+            sleep(10)
+            lcd.clear()
+            led_yesil.value =False         
+            
+            
+              
+    dosya.close()
+
+```
+*Okunan Görüntüyü Text Dosyasına Kaydetmek için;*
+
+```python
+    an = datetime.datetime.now()
+    st_an=datetime.datetime.strftime(an,'Giriş Zamanı:%d.%m.%Y Saat %H.%M.%S')
+    
+    dosya_2 = open("kayit_edilen_plakalar.txt", "a", encoding="utf-8")
+
+    
+    dosya_2.write(y2+"-->"+y3)
+    dosya_2.write("\n")
+    dosya_2.write(st_an)
+    dosya_2.write("\n")
+    dosya_2.write("--------------------------------")
+    dosya_2.write("\n")
+    
+    
+    dosya_2.close()
+    messagebox.showinfo("Kayıt","PLAKA KAYIT EDİLDİ")
+
+
+```
+
 # Sistemin Gerçek Zamanlı Test Edilmesi
 Plaka tespiti için gerekli olan görüntü USB Kameradan alınarak, klavyeden “S” tuşuna basılarak elde edilmiştir. Kaydedilen görüntü sonrasında görüntü okuma işlemi yapıldığında aşağıda görüldüğü gibi plaka tespit edilmiştir.
 
