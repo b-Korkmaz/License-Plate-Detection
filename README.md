@@ -173,27 +173,27 @@ Plaka tespiti için gerekli olan görüntü USB Kameradan alınarak, klavyeden �
 
 *İlk Görüntünün Alınması;*
 
-![image](https://user-images.githubusercontent.com/70108497/130415080-a5cde865-b86f-4ad5-b32d-dee980638e17.png)
+![pl_1_k](https://user-images.githubusercontent.com/70108497/131503892-87634d6e-03d2-4c8f-afae-92dfb8c807cd.png)
 
 *Görüntünün Okunması;*
 
-![image](https://user-images.githubusercontent.com/70108497/130415177-bc507c7b-90cb-403a-97c7-3795f00f92eb.png)
+![pl_2_k](https://user-images.githubusercontent.com/70108497/131504122-1bca68a1-abb3-4364-b845-1c8b1f1cdafc.png)
 
 Görüntü değerlendirildikten sonra çevre birimlerin çalışması aşığıda görüldüğü gibi ; plakanın durumuna göre işlemekedir.
 
 *V1*
 
-![image](https://user-images.githubusercontent.com/70108497/130415455-9ba2382c-87a5-45f3-8a13-ed2283ddf4b2.png)
+![pl_4_k](https://user-images.githubusercontent.com/70108497/131504663-36ff519e-fcad-4ee9-8c32-231dcba6d5b8.png)
 
 
 *V2*
 
-![image](https://user-images.githubusercontent.com/70108497/130415488-c301a34b-b7d6-4c03-ad07-1c1dace5d2f9.png)
+![pl_3_k](https://user-images.githubusercontent.com/70108497/131504433-54389c72-1669-4f1e-bac0-90fd865c4dc6.png)
 
 
 *Sonuçların Text Dosyasına Kaydedilmesi;*
 
-![image](https://user-images.githubusercontent.com/70108497/130415265-41d23dd1-8c40-434e-819e-a1c3c6b85b3d.png)
+![pl_5_k](https://user-images.githubusercontent.com/70108497/131504913-9ddd5cd1-7807-4571-93ef-2db9a621eea6.png)
 
 # Sonuç
 Raspberry Pi 3B+ geliştirme kartı ile görüntü işleme yöntemleri kullanılarak Plaka Okuma Sistemi başarı ile çalıştırılmıştır. Tasarımda Thony IDE yani Python derleyicisi kullanılarak kaynak kodu hazırlanmıştır. Gerçek zamanlı hazırlanan bu sistemin gerekli çevre birimleri montajları breadboard üzerine yapılarak sistem çalışır hale getirilmiştir. Bu çalışmada Raspberry Pi geliştirme kartı kullanılarak bir sistem tasarımı sunulmuştur.
