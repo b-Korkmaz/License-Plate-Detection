@@ -9,7 +9,7 @@ Ortamda bulunan nesnelerin gerçek zamanlı tespit edilmesi, sınıflandırılma
 Önerilen yönteme ait deneysel çalışmaların gerçekleştirilmesinde araç plakası kullanılmaktadır. Fotoğraflar alındıktan sonra görüntü işleme teknikleri kullanılarak işlenmektedir. Plakaların görüntü düzlemi üzerindeki harf ve sayıları gibi verileri hesaplanarak elde edilmektedir.
 
 # IDE - Kütüphaneler ve Çevre Birimlerin Tanımlanması
-Bu çalışmada kaynak kodun hazırlanmasında Thony IDE’ si kullanılmıştır. Bütün Raspberry Pi geliştirme kartlarında yükle olarak gelmektedir. Hem esnek olmasından dolayı hem de gerekli kütüphanelerin yüklenmesi açısından oldukça kolaylık sağlamaktadır.
+Bu çalışmada kaynak kodun hazırlanmasında Thony IDE’ si kullanılmıştır. Bütün Raspberry Pi geliştirme kartlarında yüklü olarak gelmektedir. Hem esnek olmasından dolayı hem de gerekli kütüphanelerin yüklenmesi açısından oldukça kolaylık sağlamaktadır.
 İlk olarak gerekli kütüphane tanımlamaları yapılmıştır. Thony IDE’ sinin mevcut LCD kütüphanesi ile GPIO pinleri çakıştığı için Adafriut Kütüphaneleri kullanılmıştır. Bu tanımlamalardan sonra çevre birimler tek tek test edilerek çalıştığı gözlemlenmiştir. Sonrasında sistemin ara yüzü oluşturulmaya başlanmıştır. Ara yüz oluşturmak için Python dilinin Tkhinder kütüphanesi kullanılmıştır.
 
 *Kütüphane Tanımlamalarının Yapıldığı Program Bölümü;*
